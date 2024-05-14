@@ -1,31 +1,28 @@
 <?php
-
 $twoDArray = [];
 $width = 3;
 $height = 3;
 $winnings = 0;
 $balance = intval(readline("Enter your starting balance: "));
 $bet = 10;
-
 function randomizeCharacter(): string
 {
     $rand = mt_rand(1, 100);
     if ($rand <= 50) {
-        // 50% chance
+        // 50%
         $characters = "A";
     } elseif ($rand <= 75) {
-        // 25% chance
+        // 25%
         $characters = "K";
     } elseif ($rand <= 95) {
-        // 20% chance
+        // 20%
         $characters = "X";
     } else {
-        // 5% chance
+        // 5%
         $characters = "7";
     }
     return $characters[rand(0, strlen($characters) - 1)];
 }
-
 function createSlot($height, $width, $twoDArray)
 {
     for ($i = 0; $i < $height; $i++) {
@@ -35,7 +32,6 @@ function createSlot($height, $width, $twoDArray)
     }
     return $twoDArray;
 }
-
 function showSlot($height, $width, $twoDArray)
 {
     for ($i = 0; $i < $height; $i++) {
@@ -46,7 +42,6 @@ function showSlot($height, $width, $twoDArray)
         echo PHP_EOL;
     }
 }
-
 function calculateWinAmount($string, $int, $height, $width)
 {
     $multiplier = [
@@ -57,11 +52,9 @@ function calculateWinAmount($string, $int, $height, $width)
     ];
     return ($int * $multiplier[$string])/($height+$width);
 }
-
 function checkWin($height, $width, $twoDArray, $bet)
 {
     $winAmount = 0;
-
     //horizontal
     for ($i = 0; $i < $height; $i++) {
         $count = 0;
@@ -92,12 +85,10 @@ function checkWin($height, $width, $twoDArray, $bet)
     }
     return $winAmount;
 }
-
 function clearConsole()
 {
     echo "\n \n \n \n \n \n";
 }
-
 while (true) {
     clearConsole();
     if (!empty($twoDArray)) {
