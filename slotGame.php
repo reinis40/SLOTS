@@ -4,7 +4,7 @@ $twoDArray = [];
 $width = 3;
 $height = 3;
 $winnings = 0;
-$balance = 100;
+$balance = intval(readline("Enter your starting balance: "));
 $bet = 10;
 
 function randomizeCharacter(): string
